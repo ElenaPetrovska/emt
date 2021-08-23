@@ -55,6 +55,20 @@ public class DrinkController {
         return "roseWine";
     }
 
+    @GetMapping("/beer")
+    public String getBeerPage(Model model){
+        List<Drink> drinks = this.drinkService.findAllBeers();
+        model.addAttribute("drinks", drinks);
+        return "beer";
+    }
+
+    @GetMapping("/whiskey")
+    public String getWhiskeyPage(Model model){
+        List<Drink> drinks = this.drinkService.findAllWhiskeys();
+        model.addAttribute("drinks", drinks);
+        return "wiskey";
+    }
+
 
     @GetMapping("/add-new")
     public String addNewDrinkPage(Model model){
